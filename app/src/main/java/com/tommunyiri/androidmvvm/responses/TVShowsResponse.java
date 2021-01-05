@@ -15,7 +15,7 @@ public class TVShowsResponse {
     private Integer page;
     @SerializedName("pages")
     @Expose
-    private Integer pages;
+    private Integer totalPages;
     @SerializedName("tv_shows")
     @Expose
     private List<TVShow> tvShows = null;
@@ -36,12 +36,12 @@ public class TVShowsResponse {
         this.page = page;
     }
 
-    public Integer getPages() {
-        return pages;
+    public Integer getTotalPages() {
+        return totalPages;
     }
 
-    public void setPages(Integer pages) {
-        this.pages = pages;
+    public void setTotalPages(Integer totalPages) {
+        this.totalPages = totalPages;
     }
 
     public List<TVShow> getTvShows() {
