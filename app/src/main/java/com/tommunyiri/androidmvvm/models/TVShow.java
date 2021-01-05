@@ -30,7 +30,7 @@ public class TVShow {
     private String status;
     @SerializedName("image_thumbnail_path")
     @Expose
-    private String imageThumbnailPath;
+    private String thumbnail;
 
     public Integer getId() {
         return id;
@@ -96,11 +96,11 @@ public class TVShow {
         this.status = status;
     }
 
-    public String getImageThumbnailPath() {
-        return imageThumbnailPath;
+    public String getThumbnail() {
+        return thumbnail;
     }
 
-    public void setImageThumbnailPath(String imageThumbnailPath) {
-        this.imageThumbnailPath = imageThumbnailPath;
+    public void setThumbnail(String thumbnail) {
+        this.thumbnail = thumbnail;
     }
 }
