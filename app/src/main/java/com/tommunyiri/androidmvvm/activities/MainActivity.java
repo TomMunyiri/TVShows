@@ -1,8 +1,10 @@
-package com.tommunyiri.androidmvvm;
+package com.tommunyiri.androidmvvm.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.tommunyiri.androidmvvm.R;
 
 public class MainActivity extends AppCompatActivity {
 
