@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         viewModel = new ViewModelProvider(this).get(MostPopularTVShowsViewModel.class);
         tvShowsAdapter = new TVShowsAdapter(tvShows);
         activityMainBinding.tvShowsRecyclerView.setAdapter(tvShowsAdapter);
+        activityMainBinding.setIsLoading(true);
         getMostPopularTVShows();
     }
 

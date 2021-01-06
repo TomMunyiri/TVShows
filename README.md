@@ -1,5 +1,5 @@
 # About AndroidMVVM
 A project implementing Google's recommended architecture for building Android apps Model-View-ViewModel 
-## Practices demonstrated
+## Best Practices used
 - Repository Pattern
 - Data Binding
