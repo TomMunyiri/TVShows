@@ -9,8 +9,8 @@ import com.tommunyiri.androidmvvm.responses.TVShowDetailsResponse;
 public class TVShowDetailsViewModel extends ViewModel {
     private TVShowDetailsRepository tvShowDetailsRepository;
 
-    public TVShowDetailsViewModel(TVShowDetailsRepository tvShowDetailsRepository) {
-        this.tvShowDetailsRepository = tvShowDetailsRepository;
+    public TVShowDetailsViewModel() {
+        tvShowDetailsRepository = new TVShowDetailsRepository();
     }
 
     public LiveData<TVShowDetailsResponse> getTVShowDetails(String tvShowId){
