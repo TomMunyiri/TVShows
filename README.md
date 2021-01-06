@@ -3,3 +3,4 @@ A project implementing Google's recommended architecture for building Android ap
 ## Best Practices used
 - Repository Pattern
 - Data Binding
+- Pagination
