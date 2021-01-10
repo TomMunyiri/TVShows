@@ -31,6 +31,7 @@ public class TVShowDetailsActivity extends AppCompatActivity {
 
     private void doInitialization(){
         tvShowDetailsViewModel= new ViewModelProvider(this).get(TVShowDetailsViewModel.class);
+        activityTVShowDetailsBinding.imageBack.setOnClickListener(v -> onBackPressed());
         getTVShowDetails();
     }
 
@@ -43,6 +44,8 @@ public class TVShowDetailsActivity extends AppCompatActivity {
                 if(tvShowDetailsResponse.getTvShowDetails().getPictures()!=null){
                     loadImageSlider(tvShowDetailsResponse.getTvShowDetails().getPictures());
                 }
+                activityTVShowDetailsBinding.setTvShowImageURL(tvShowDetailsResponse.getTvShowDetails().getImage_path());
+                activityTVShowDetailsBinding.imageTVShow.setVisibility(View.VISIBLE);
             }
         });
     }
