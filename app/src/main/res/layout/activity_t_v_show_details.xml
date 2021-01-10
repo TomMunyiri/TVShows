@@ -88,7 +88,7 @@
         <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/imageTVShow"
             android:layout_width="@dimen/_100sdp"
-            android:layout_height="@dimen/_130sdp"
+            android:layout_height="@dimen/_150sdp"
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginLeft="@dimen/_10sdp"
             android:imageURL="@{tvShowImageURL}"
