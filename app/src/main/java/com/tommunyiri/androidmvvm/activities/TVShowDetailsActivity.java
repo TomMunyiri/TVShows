@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
 import android.view.View;
@@ -52,6 +53,23 @@ public class TVShowDetailsActivity extends AppCompatActivity {
         activityTVShowDetailsBinding.sliderViewPager.setVisibility(View.VISIBLE);
         activityTVShowDetailsBinding.viewFadingEdge.setVisibility(View.VISIBLE);
         setupSliderIndicators(sliderImages.length);
+        activityTVShowDetailsBinding.sliderViewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                //super.onPageScrolled(position, positionOffset, positionOffsetPixels);
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                super.onPageSelected(position);
+                setCurrentSliderIndicator(position);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+                //super.onPageScrollStateChanged(state);
+            }
+        });
     }
 
     private void setupSliderIndicators(int count){
@@ -69,6 +87,7 @@ public class TVShowDetailsActivity extends AppCompatActivity {
             activityTVShowDetailsBinding.layoutSliderIndicators.addView(indicators[i]);
         }
         activityTVShowDetailsBinding.layoutSliderIndicators.setVisibility(View.VISIBLE);
+        setCurrentSliderIndicator(0);
     }
 
     private void setCurrentSliderIndicator(int position){
