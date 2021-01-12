@@ -5,5 +5,5 @@ A project implementing Google's recommended architecture for building Android ap
 - Data Binding
 - Pagination
 
-# API used
+## API used
 https://www.episodate.com/api
