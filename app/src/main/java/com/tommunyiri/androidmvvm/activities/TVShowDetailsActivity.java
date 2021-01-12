@@ -20,6 +20,8 @@ import com.tommunyiri.androidmvvm.adapters.ImageSliderAdapter;
 import com.tommunyiri.androidmvvm.databinding.ActivityTVShowDetailsBinding;
 import com.tommunyiri.androidmvvm.viewmodels.TVShowDetailsViewModel;
 
+import java.util.Locale;
+
 public class TVShowDetailsActivity extends AppCompatActivity {
     private ActivityTVShowDetailsBinding activityTVShowDetailsBinding;
     private TVShowDetailsViewModel tvShowDetailsViewModel;
@@ -69,6 +71,22 @@ public class TVShowDetailsActivity extends AppCompatActivity {
                         activityTVShowDetailsBinding.textReadMore.setText("READ MORE");
                     }
                 });
+                activityTVShowDetailsBinding.setRating(
+                        String.format(
+                                Locale.getDefault(),
+                                "%.2f",
+                                Double.parseDouble(tvShowDetailsResponse.getTvShowDetails().getRating())
+                        )
+                );
+                if(tvShowDetailsResponse.getTvShowDetails().getGenres()!=null){
+                    activityTVShowDetailsBinding.setGenre(tvShowDetailsResponse.getTvShowDetails().getGenres()[0]);
+                }else{
+                    activityTVShowDetailsBinding.setGenre("N/A");
+                }
+                activityTVShowDetailsBinding.setRuntime(tvShowDetailsResponse.getTvShowDetails().getRuntime()+" Min");
+                activityTVShowDetailsBinding.viewDivider1.setVisibility(View.VISIBLE);
+                activityTVShowDetailsBinding.viewDivider2.setVisibility(View.VISIBLE);
+                activityTVShowDetailsBinding.layoutMisc.setVisibility(View.VISIBLE);
                 loadBasicTVShowDetails();
             }
         });
