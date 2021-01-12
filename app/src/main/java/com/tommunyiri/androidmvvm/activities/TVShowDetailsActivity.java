@@ -2,11 +2,13 @@ package com.tommunyiri.androidmvvm.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.core.text.HtmlCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -46,6 +48,27 @@ public class TVShowDetailsActivity extends AppCompatActivity {
                 }
                 activityTVShowDetailsBinding.setTvShowImageURL(tvShowDetailsResponse.getTvShowDetails().getImage_path());
                 activityTVShowDetailsBinding.imageTVShow.setVisibility(View.VISIBLE);
+                activityTVShowDetailsBinding.setDescription(
+                        String.valueOf(
+                                HtmlCompat.fromHtml(
+                                        tvShowDetailsResponse.getTvShowDetails().getDescription(),
+                                        HtmlCompat.FROM_HTML_MODE_LEGACY
+                                )
+                        )
+                );
+                activityTVShowDetailsBinding.textDescription.setVisibility(View.VISIBLE);
+                activityTVShowDetailsBinding.textReadMore.setVisibility(View.VISIBLE);
+                activityTVShowDetailsBinding.textReadMore.setOnClickListener(v -> {
+                    if(activityTVShowDetailsBinding.textReadMore.getText().toString().equals("Read More")){
+                        activityTVShowDetailsBinding.textDescription.setMaxLines(Integer.MAX_VALUE);
+                        activityTVShowDetailsBinding.textDescription.setEllipsize(null);
+                        activityTVShowDetailsBinding.textReadMore.setText("Read Less");
+                    }else{
+                        activityTVShowDetailsBinding.textDescription.setMaxLines(4);
+                        activityTVShowDetailsBinding.textDescription.setEllipsize(TextUtils.TruncateAt.END);
+                        activityTVShowDetailsBinding.textReadMore.setText("Read More");
+                    }
+                });
                 loadBasicTVShowDetails();
             }
         });
