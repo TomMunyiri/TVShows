@@ -4,3 +4,6 @@ A project implementing Google's recommended architecture for building Android ap
 - Repository Pattern
 - Data Binding
 - Pagination
+
+# API used
+https://www.episodate.com/api
