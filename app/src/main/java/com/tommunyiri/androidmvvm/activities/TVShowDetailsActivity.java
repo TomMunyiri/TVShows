@@ -17,9 +17,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.tommunyiri.androidmvvm.R;
 import com.tommunyiri.androidmvvm.adapters.ImageSliderAdapter;
 import com.tommunyiri.androidmvvm.databinding.ActivityTVShowDetailsBinding;
+import com.tommunyiri.androidmvvm.databinding.LayoutEpisodesBottomSheetBinding;
 import com.tommunyiri.androidmvvm.viewmodels.TVShowDetailsViewModel;
 
 import java.util.Locale;
@@ -27,6 +29,8 @@ import java.util.Locale;
 public class TVShowDetailsActivity extends AppCompatActivity {
     private ActivityTVShowDetailsBinding activityTVShowDetailsBinding;
     private TVShowDetailsViewModel tvShowDetailsViewModel;
+    private BottomSheetDialog episodesBottomSheetDialog;
+    private LayoutEpisodesBottomSheetBinding layoutEpisodesBottomSheetBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
