@@ -38,7 +38,11 @@
                 android:padding="@dimen/_2sdp"
                 android:src="@drawable/ic_close"
                 app:tint="@color/colorTextIcons"
-                android:layout_marginRight="@dimen/_8sdp" />
+                android:layout_marginRight="@dimen/_8sdp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:contextClickable="true"/>
         </LinearLayout>
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
