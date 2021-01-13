@@ -17,8 +17,9 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_8sdp"
-        android:background="@drawable/background_tv_show">
+        android:layout_margin="@dimen/_4sdp"
+        android:background="@drawable/background_tv_show"
+        android:padding="@dimen/_6sdp">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
