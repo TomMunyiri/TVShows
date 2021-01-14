@@ -1,19 +1,33 @@
 package com.tommunyiri.androidmvvm.viewmodels;
 
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.ViewModel;
+import android.app.Application;
 
+import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
+
+import com.tommunyiri.androidmvvm.database.TVShowsDatabase;
+import com.tommunyiri.androidmvvm.models.TVShow;
 import com.tommunyiri.androidmvvm.repositories.TVShowDetailsRepository;
 import com.tommunyiri.androidmvvm.responses.TVShowDetailsResponse;
 
-public class TVShowDetailsViewModel extends ViewModel {
-    private TVShowDetailsRepository tvShowDetailsRepository;
+import io.reactivex.Completable;
 
-    public TVShowDetailsViewModel() {
+public class TVShowDetailsViewModel extends AndroidViewModel {
+    private TVShowDetailsRepository tvShowDetailsRepository;
+    private TVShowsDatabase tvShowsDatabase;
+
+    public TVShowDetailsViewModel(@NonNull Application application) {
+        super(application);
         tvShowDetailsRepository = new TVShowDetailsRepository();
+        tvShowsDatabase = TVShowsDatabase.getTvShowsDatabase(application);
     }
 
     public LiveData<TVShowDetailsResponse> getTVShowDetails(String tvShowId){
         return tvShowDetailsRepository.getTVShowDetails(tvShowId);
+    }
+
+    public Completable addToWatchlist(TVShow tvShow){
+        return tvShowsDatabase.tvShowDao().addToWatchlist(tvShow);
     }
 }
