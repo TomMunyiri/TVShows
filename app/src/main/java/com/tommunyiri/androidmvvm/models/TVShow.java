@@ -1,9 +1,18 @@
 package com.tommunyiri.androidmvvm.models;
 
+import androidx.annotation.Nullable;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class TVShow {
+import java.io.Serializable;
+
+@Entity(tableName = "tvShows")
+public class TVShow implements Serializable {
+
+    @PrimaryKey
     @SerializedName("id")
     @Expose
     private Integer id;
@@ -16,9 +25,10 @@ public class TVShow {
     @SerializedName("start_date")
     @Expose
     private String startDate;
+    @Nullable
     @SerializedName("end_date")
     @Expose
-    private Object endDate;
+    private String endDate;
     @SerializedName("country")
     @Expose
     private String country;
@@ -64,11 +74,11 @@ public class TVShow {
         this.startDate = startDate;
     }
 
-    public Object getEndDate() {
+    public String getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Object endDate) {
+    public void setEndDate(String endDate) {
         this.endDate = endDate;
     }
 
