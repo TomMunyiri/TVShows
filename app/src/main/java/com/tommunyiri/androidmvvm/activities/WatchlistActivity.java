@@ -13,6 +13,7 @@ import com.tommunyiri.androidmvvm.adapters.WatchlistAdapter;
 import com.tommunyiri.androidmvvm.databinding.ActivityWatchlistBinding;
 import com.tommunyiri.androidmvvm.listeners.WatchlistListener;
 import com.tommunyiri.androidmvvm.models.TVShow;
+import com.tommunyiri.androidmvvm.utils.TempDataHolder;
 import com.tommunyiri.androidmvvm.viewmodels.WatchlistViewModel;
 
 import java.util.ArrayList;
@@ -47,7 +48,10 @@ public class WatchlistActivity extends AppCompatActivity implements WatchlistLis
     @Override
     protected void onResume() {
         super.onResume();
-        loadWatchlist();
+        if(TempDataHolder.IS_WATCH_LIST_UPDATED){
+            loadWatchlist();
+            TempDataHolder.IS_WATCH_LIST_UPDATED=false;
+        }
     }
 
     private void loadWatchlist() {
