@@ -43,6 +43,7 @@ public class WatchlistActivity extends AppCompatActivity implements WatchlistLis
             onBackPressed();
         });
         watchlist = new ArrayList<>();
+        loadWatchlist();
     }
 
     @Override

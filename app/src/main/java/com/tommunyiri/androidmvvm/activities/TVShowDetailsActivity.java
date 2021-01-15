@@ -28,6 +28,7 @@ import com.tommunyiri.androidmvvm.adapters.ImageSliderAdapter;
 import com.tommunyiri.androidmvvm.databinding.ActivityTVShowDetailsBinding;
 import com.tommunyiri.androidmvvm.databinding.LayoutEpisodesBottomSheetBinding;
 import com.tommunyiri.androidmvvm.models.TVShow;
+import com.tommunyiri.androidmvvm.utils.TempDataHolder;
 import com.tommunyiri.androidmvvm.viewmodels.TVShowDetailsViewModel;
 
 import java.util.Locale;
@@ -167,6 +168,8 @@ public class TVShowDetailsActivity extends AppCompatActivity {
                                 .subscribeOn(Schedulers.computation())
                                 .observeOn(AndroidSchedulers.mainThread())
                                 .subscribe(() -> {
+                                    isTVShowAvailableInWatchlist=false;
+                                    TempDataHolder.IS_WATCH_LIST_UPDATED=true;
                                     activityTVShowDetailsBinding.imageWatchlist.setImageResource(R.drawable.ic_watchlist);
                                     Toast.makeText(getApplicationContext(), "Removed from watchlist", Toast.LENGTH_SHORT).show();
                                     compositeDisposable.dispose();
@@ -176,6 +179,7 @@ public class TVShowDetailsActivity extends AppCompatActivity {
                                 .subscribeOn(Schedulers.io())
                                 .observeOn(AndroidSchedulers.mainThread())
                                 .subscribe(() -> {
+                                    TempDataHolder.IS_WATCH_LIST_UPDATED=true;
                                     activityTVShowDetailsBinding.imageWatchlist.setImageResource(R.drawable.ic_added);
                                     Toast.makeText(getApplicationContext(), "Added to watchlist", Toast.LENGTH_SHORT).show();
                                     compositeDisposable.dispose();
