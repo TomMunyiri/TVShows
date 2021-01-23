@@ -94,14 +94,14 @@ public class TVShowDetailsActivity extends AppCompatActivity {
                 activityTVShowDetailsBinding.textDescription.setVisibility(View.VISIBLE);
                 activityTVShowDetailsBinding.textReadMore.setVisibility(View.VISIBLE);
                 activityTVShowDetailsBinding.textReadMore.setOnClickListener(v -> {
-                    if (activityTVShowDetailsBinding.textReadMore.getText().toString().equals("READ MORE")) {
+                    if (activityTVShowDetailsBinding.textReadMore.getText().toString().equals(getString(R.string.read_more))) {
                         activityTVShowDetailsBinding.textDescription.setMaxLines(Integer.MAX_VALUE);
                         activityTVShowDetailsBinding.textDescription.setEllipsize(null);
-                        activityTVShowDetailsBinding.textReadMore.setText("READ LESS");
+                        activityTVShowDetailsBinding.textReadMore.setText(R.string.read_less);
                     } else {
                         activityTVShowDetailsBinding.textDescription.setMaxLines(4);
                         activityTVShowDetailsBinding.textDescription.setEllipsize(TextUtils.TruncateAt.END);
-                        activityTVShowDetailsBinding.textReadMore.setText("READ MORE");
+                        activityTVShowDetailsBinding.textReadMore.setText(getString(R.string.read_more));
                     }
                 });
                 activityTVShowDetailsBinding.setRating(
@@ -114,9 +114,9 @@ public class TVShowDetailsActivity extends AppCompatActivity {
                 if (tvShowDetailsResponse.getTvShowDetails().getGenres() != null && tvShowDetailsResponse.getTvShowDetails().getGenres().length!=0) {
                     activityTVShowDetailsBinding.setGenre(tvShowDetailsResponse.getTvShowDetails().getGenres()[0]);
                 } else {
-                    activityTVShowDetailsBinding.setGenre("N/A");
+                    activityTVShowDetailsBinding.setGenre(getString(R.string.not_applicable));
                 }
-                activityTVShowDetailsBinding.setRuntime(tvShowDetailsResponse.getTvShowDetails().getRuntime() + " Min");
+                activityTVShowDetailsBinding.setRuntime(tvShowDetailsResponse.getTvShowDetails().getRuntime() + getString(R.string.min));
                 activityTVShowDetailsBinding.viewDivider1.setVisibility(View.VISIBLE);
                 activityTVShowDetailsBinding.viewDivider2.setVisibility(View.VISIBLE);
                 activityTVShowDetailsBinding.layoutMisc.setVisibility(View.VISIBLE);
@@ -171,7 +171,7 @@ public class TVShowDetailsActivity extends AppCompatActivity {
                                     isTVShowAvailableInWatchlist=false;
                                     TempDataHolder.IS_WATCH_LIST_UPDATED=true;
                                     activityTVShowDetailsBinding.imageWatchlist.setImageResource(R.drawable.ic_watchlist);
-                                    Toast.makeText(getApplicationContext(), "Removed from watchlist", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), getString(R.string.removed_from_watchlist), Toast.LENGTH_SHORT).show();
                                     compositeDisposable.dispose();
                                 }));
                     }else{
@@ -181,7 +181,7 @@ public class TVShowDetailsActivity extends AppCompatActivity {
                                 .subscribe(() -> {
                                     TempDataHolder.IS_WATCH_LIST_UPDATED=true;
                                     activityTVShowDetailsBinding.imageWatchlist.setImageResource(R.drawable.ic_added);
-                                    Toast.makeText(getApplicationContext(), "Added to watchlist", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), getString(R.string.added_to_watchlist), Toast.LENGTH_SHORT).show();
                                     compositeDisposable.dispose();
                                 }));
                     }
