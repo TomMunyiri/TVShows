@@ -48,7 +48,7 @@
                 android:layout_marginEnd="@dimen/_8sdp"
                 android:id="@+id/inputSearch"
                 android:background="@null"
-                android:hint="Search TV Show"
+                android:hint="@string/search_tv_show"
                 android:imeOptions="actionDone"
                 android:importantForAutofill="no"
                 android:includeFontPadding="false"

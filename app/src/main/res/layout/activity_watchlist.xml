@@ -41,7 +41,7 @@
                 android:fontFamily="@font/ubuntu_bold"
                 android:includeFontPadding="false"
                 android:maxLines="1"
-                android:text="Watchlist"
+                android:text="@string/watchlist"
                 android:textColor="@color/colorTextIcons"
                 android:textSize="@dimen/_16ssp"/>
         </LinearLayout>
