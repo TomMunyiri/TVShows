@@ -21,7 +21,7 @@ public class MostPopularTVShowsRepository {
 
     public LiveData<TVShowsResponse> getMostPopularTVShows(int page) {
         MutableLiveData<TVShowsResponse> data = new MutableLiveData<>();
-        apiService.getMostPopularTVShows(page).enqueue(new Callback<TVShowsResponse>() {
+        apiService.getMostPopularTVShows(page).enqueue(new Callback<>() {
             @Override
             public void onResponse(@NonNull Call<TVShowsResponse> call, @NonNull Response<TVShowsResponse> response) {
                 data.setValue(response.body());

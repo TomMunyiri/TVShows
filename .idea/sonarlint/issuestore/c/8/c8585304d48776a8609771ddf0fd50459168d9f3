@@ -1,0 +1,11 @@
+
+J
+java:S10660"/Merge this if statement with the enclosing one.(ŸµÊÊþÿÿÿÿ
+V	java:S125*"<This block of commented-out lines of code should be removed.(‘ªùâûÿÿÿÿ
+P	java:S125F"<This block of commented-out lines of code should be removed.(ÂÕÃw
+Q	java:S125M"<This block of commented-out lines of code should be removed.(Š”óá
+X
+java:S1126V"BReplace this if-then-else statement by a single method invocation.(Þë·€
+W
+java:S1126\"BReplace this if-then-else statement by a single method invocation.(Ü¦ÿ
+Q	java:S125g"<This block of commented-out lines of code should be removed.(ªœ€

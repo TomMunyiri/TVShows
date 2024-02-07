@@ -1,13 +1,13 @@
 package com.tommunyiri.androidmvvm.activities;
 
+import android.content.Intent;
+import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.content.Intent;
-import android.os.Bundle;
 
 import com.tommunyiri.androidmvvm.R;
 import com.tommunyiri.androidmvvm.adapters.TVShowsAdapter;
@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements TVShowsListener {
     private MostPopularTVShowsViewModel viewModel;
     private List<TVShow> tvShows = new ArrayList<>();
     private TVShowsAdapter tvShowsAdapter;
-    private int currentPage =1;
+    private int currentPage = 1;
     private int totalAvailablePages = 1;
 
     @Override
@@ -37,28 +37,28 @@ public class MainActivity extends AppCompatActivity implements TVShowsListener {
     private void doInitialization() {
         activityMainBinding.tvShowsRecyclerView.setHasFixedSize(true);
         viewModel = new ViewModelProvider(this).get(MostPopularTVShowsViewModel.class);
-        tvShowsAdapter = new TVShowsAdapter(tvShows,this);
+        tvShowsAdapter = new TVShowsAdapter(tvShows, this);
         activityMainBinding.tvShowsRecyclerView.setAdapter(tvShowsAdapter);
         //activityMainBinding.setIsLoading(true);
         activityMainBinding.tvShowsRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
-                if(!activityMainBinding.tvShowsRecyclerView.canScrollVertically(1)){
-                    if(currentPage<=totalAvailablePages){
-                        currentPage+=1;
+                if (!activityMainBinding.tvShowsRecyclerView.canScrollVertically(1)) {
+                    if (currentPage <= totalAvailablePages) {
+                        currentPage += 1;
                         getMostPopularTVShows();
                     }
                 }
             }
         });
         activityMainBinding.imageWatchlist.setOnClickListener(v -> {
-            Intent intent=new Intent(this,WatchlistActivity.class);
+            Intent intent = new Intent(this, WatchlistActivity.class);
             startActivity(intent);
         });
 
         activityMainBinding.imageSearch.setOnClickListener(v -> {
-            Intent intent =new Intent(this,SearchActivity.class);
+            Intent intent = new Intent(this, SearchActivity.class);
             startActivity(intent);
         });
         getMostPopularTVShows();
@@ -69,29 +69,29 @@ public class MainActivity extends AppCompatActivity implements TVShowsListener {
         viewModel.getMostPopularTVShows(currentPage).observe(this, mostPopularTVShowsResponse -> {
             //Toast.makeText(getApplicationContext(), "Total pages: " + mostPopularTVShowsResponse.getTotalPages(), Toast.LENGTH_SHORT).show();
             toggleLoading();
-            if(mostPopularTVShowsResponse!=null){
-                totalAvailablePages=mostPopularTVShowsResponse.getTotalPages();
-                if(mostPopularTVShowsResponse.getTvShows()!=null){
+            if (mostPopularTVShowsResponse != null) {
+                totalAvailablePages = mostPopularTVShowsResponse.getTotalPages();
+                if (mostPopularTVShowsResponse.getTvShows() != null) {
                     int oldCount = tvShows.size();
                     tvShows.addAll(mostPopularTVShowsResponse.getTvShows());
                     //tvShowsAdapter.notifyDataSetChanged();
-                    tvShowsAdapter.notifyItemRangeInserted(oldCount,tvShows.size());
+                    tvShowsAdapter.notifyItemRangeInserted(oldCount, tvShows.size());
                 }
             }
         });
     }
 
-    private void toggleLoading(){
-        if(currentPage==1){
-            if(activityMainBinding.getIsLoading()!=null&&activityMainBinding.getIsLoading()){
+    private void toggleLoading() {
+        if (currentPage == 1) {
+            if (activityMainBinding.getIsLoading() != null && activityMainBinding.getIsLoading()) {
                 activityMainBinding.setIsLoading(false);
-            }else{
+            } else {
                 activityMainBinding.setIsLoading(true);
             }
-        }else{
-            if(activityMainBinding.getIsLoadingMore()!=null&&activityMainBinding.getIsLoadingMore()){
+        } else {
+            if (activityMainBinding.getIsLoadingMore() != null && activityMainBinding.getIsLoadingMore()) {
                 activityMainBinding.setIsLoadingMore(false);
-            }else{
+            } else {
                 activityMainBinding.setIsLoadingMore(true);
             }
         }
@@ -99,14 +99,14 @@ public class MainActivity extends AppCompatActivity implements TVShowsListener {
 
     @Override
     public void onTVShowClicked(TVShow tvShow) {
-        Intent intent=new Intent(getApplicationContext(),TVShowDetailsActivity.class);
+        Intent intent = new Intent(getApplicationContext(), TVShowDetailsActivity.class);
         /*intent.putExtra("id",tvShow.getId());
         intent.putExtra("name",tvShow.getName());
         intent.putExtra("startDate",tvShow.getStartDate());
         intent.putExtra("country",tvShow.getCountry());
         intent.putExtra("network",tvShow.getNetwork());
         intent.putExtra("status",tvShow.getStatus());*/
-        intent.putExtra("tvShow",tvShow);
+        intent.putExtra("tvShow", tvShow);
         startActivity(intent);
     }
 }

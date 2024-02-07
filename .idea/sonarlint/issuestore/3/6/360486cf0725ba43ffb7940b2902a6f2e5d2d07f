@@ -1,0 +1,9 @@
+
+o
+java:S1104"TMake BASE_URL a static final constant or non-public and provide accessors if needed.(àÃò™úÿÿÿÿ
+I
+java:S1444".Make this "public static BASE_URL" field final(àÃò™úÿÿÿÿ
+n
+java:S3008"SRename this field "BASE_URL" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(àÃò™úÿÿÿÿ
+U
+java:S1118":Add a private constructor to hide the implicit public one.(“³±ûÿÿÿÿ

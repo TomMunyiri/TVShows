@@ -49,9 +49,9 @@ public class WatchlistActivity extends AppCompatActivity implements WatchlistLis
     @Override
     protected void onResume() {
         super.onResume();
-        if(TempDataHolder.IS_WATCH_LIST_UPDATED){
+        if (TempDataHolder.IS_WATCH_LIST_UPDATED) {
             loadWatchlist();
-            TempDataHolder.IS_WATCH_LIST_UPDATED=false;
+            TempDataHolder.IS_WATCH_LIST_UPDATED = false;
         }
     }
 

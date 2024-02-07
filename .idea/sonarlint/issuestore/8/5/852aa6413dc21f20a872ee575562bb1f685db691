@@ -1,0 +1,15 @@
+
+J
+java:S1066Z"/Merge this if statement with the enclosing one.( æ²’ýÿÿÿÿ
+J
+java:S1066["/Merge this if statement with the enclosing one.(ŸµÊÊþÿÿÿÿ
+G
+java:S1602-",Remove useless curly braces around statement(ÁÍÓæþÿÿÿÿ
+—
+java:S11866"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(«û³±
+P	java:S125i"<This block of commented-out lines of code should be removed.(ÂÕÃw
+Q	java:S125p"<This block of commented-out lines of code should be removed.(Š”óá
+X
+java:S1126y"BReplace this if-then-else statement by a single method invocation.(ø‹‘Ô
+]
+java:S1126"BReplace this if-then-else statement by a single method invocation.(ö§ƒæùÿÿÿÿ

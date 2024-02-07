@@ -9,11 +9,11 @@ import com.tommunyiri.androidmvvm.responses.TVShowsResponse;
 public class SearchViewModel extends ViewModel {
     private SearchTVShowRepository searchTVShowRepository;
 
-    public SearchViewModel(){
-        searchTVShowRepository=new SearchTVShowRepository();
+    public SearchViewModel() {
+        searchTVShowRepository = new SearchTVShowRepository();
     }
 
-    public LiveData<TVShowsResponse> searchTVShow(String query, int page){
-        return searchTVShowRepository.searchTVShow(query,page);
+    public LiveData<TVShowsResponse> searchTVShow(String query, int page) {
+        return searchTVShowRepository.searchTVShow(query, page);
     }
 }

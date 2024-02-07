@@ -19,14 +19,14 @@ public class WatchlistViewModel extends AndroidViewModel {
 
     public WatchlistViewModel(@NonNull Application application) {
         super(application);
-        tvShowsDatabase=TVShowsDatabase.getTvShowsDatabase(application);
+        tvShowsDatabase = TVShowsDatabase.getTvShowsDatabase(application);
     }
 
-    public Flowable<List<TVShow>> loadWatchlist(){
+    public Flowable<List<TVShow>> loadWatchlist() {
         return tvShowsDatabase.tvShowDao().getWatchlist();
     }
 
-    public Completable removeFromWatchlist(TVShow tvShow){
+    public Completable removeFromWatchlist(TVShow tvShow) {
         return tvShowsDatabase.tvShowDao().removeFromWatchlist(tvShow);
     }
 }

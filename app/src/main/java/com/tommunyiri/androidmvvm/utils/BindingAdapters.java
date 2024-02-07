@@ -9,8 +9,8 @@ import com.squareup.picasso.Picasso;
 
 public class BindingAdapters {
     @BindingAdapter("android:imageURL")
-    public static void setImageURL(ImageView imageView,String URL){
-        try{
+    public static void setImageURL(ImageView imageView, String URL) {
+        try {
             imageView.setAlpha(0f);
             Picasso.get().load(URL).noFade().into(imageView, new Callback() {
                 @Override
@@ -23,7 +23,7 @@ public class BindingAdapters {
 
                 }
             });
-        }catch(Exception ignored){
+        } catch (Exception ignored) {
 
         }
     }
